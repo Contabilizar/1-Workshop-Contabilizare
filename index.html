@@ -1,0 +1,1108 @@
+<html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bem-vindo à Contabilizar Contabilidade</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f3f4f6;
+            --bg-tertiary: #e5e7eb;
+			--bg-tertiaryy: #cccdce;
+            --bg-header-footer: #000033;
+            --primary bellissima: #000051;
+            --accent: #000033;
+            --hover-accent: #000397;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --border: #d1d5db;
+            --white: #ffffff;
+			--green: #aff030;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+            --spacing-unit: 1.5rem;
+            --spacing-unit-sm: 0.75rem;
+            --border-radius: 1.2rem;
+            --border-radius-sm: 0.8rem;
+            --header-height: 80px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--bg-header-footer);
+            min-height: var(--header-height);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+        .logo {
+            max-height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-menu {
+            display: flex;
+            gap: var(--spacing-unit);
+        }
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .nav-menu a:hover {
+            color: var(--hover-accent);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--white);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: calc(var(--spacing-unit) * 3);
+        }
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-unit);
+            color: var(--accent);
+        }
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-unit);
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .team-card-front h3 {
+            font-size: 1.4rem;
+            margin: 0 0 5px;
+            text-align: center;
+            width: 100%;
+            line-height: 1.4;
+            padding: 0 10px;
+            color: var(--accent);
+        }
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin: 0 0 10px;
+            text-align: center;
+            width: 100%;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        h5 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+		h6 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--green);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .team-card-front h5 {
+            font-size: 1.4rem;
+            margin: 0 0 5px;
+            text-align: center;
+            width: 100%;
+            line-height: 1.4;
+            padding: 0 10px;
+            color: var(--accent);
+        }
+        p {
+            margin: 15px 0;
+            color: var(--text-primary);
+        }
+        .section {
+            margin-bottom: calc(var(--spacing-unit) * 4);
+            padding: calc(var(--spacing-unit) * 2);
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .section:nth-child(even) {
+            background: var(--bg-tertiary);
+        }
+        .mission-vision-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(var(--spacing-unit) * 2);
+            margin-top: var(--spacing-unit);
+        }
+        .value-card {
+            background: var(--bg-secondary);
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-radius: var(--border-radius-sm);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        .value-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        .value-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            transition: var(--transition);
+		}
+        .value-card:hover i {
+            color: var(--hover-accent);	
+		}
+        .value-card g {
+            font-size: 3rem;
+            color: var(--green);
+            margin-bottom: 15px;
+            transition: var(--transition);	
+        }
+        .value-card:hover g {
+            color: var(--hover-accent);
+        }
+        .value-card h5 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        .office-image, .team-image {
+            width: 100%;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: calc(var(--spacing-unit) * 2) 0;
+            transition: var(--transition);
+            display: block;
+            aspect-ratio: 16 / 9;
+            height: auto;
+        }
+        .office-image:hover, .team-image:hover {
+            transform: scale(1.02);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit);
+        }
+        @media (min-width: 769px) {
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .team-card {
+                max-width: 250px;
+            }
+        }
+        .team-card {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: 350px;
+            perspective: 1000px;
+            transition: var(--transition);
+        }
+        .team-card:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+        .team-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .team-card:hover .team-card-inner {
+            transform: rotateY(180deg);
+        }
+        .team-card-front, .team-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            padding: var(--spacing-unit);
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .team-card-back {
+            transform: rotateY(180deg);
+            background: var(--bg-tertiaryy);
+            color: var(--text-primary);
+            padding: calc(var(--spacing-unit) * 1.5);
+        }
+        .team-card-front img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 10px;
+            border: 2px solid var(--accent);
+            transition: var(--transition);
+        }
+        .team-card-front img:hover {
+            transform: scale(1.1);
+            border-color: var(--hover-accent);
+            box-shadow: var(--shadow);
+        }
+        .team-card-back i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        .team-card-back p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-unit);
+            margin: var(--spacing-unit) 0;
+        }
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            transition: var(--transition);
+        }
+        .service-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        .service-item:hover i {
+            color: var(--hover-accent);
+        }
+        .service-item div strong {
+            color: var(--accent);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit);
+        }
+        .contact-card-modern {
+            background: var(--bg-secondary);
+            padding: var(--spacing-unit);
+            border-radius: var(--border-radius-sm);
+            border: 2px solid var(--accent);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .contact-card-modern.no-link {
+            cursor: default;
+        }
+        .contact-card-modern:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--hover-accent);
+        }
+        .contact-card-modern i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+        .contact-card-modern:hover i {
+            color: var(--hover-accent);
+            animation: pulse 1s infinite;
+        }
+        .contact-card-modern h5 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        .card-link:hover h5 {
+            color: var(--hover-accent);
+        }
+        .contact-card-modern span {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--white);
+            padding: calc(var(--spacing-unit) * 2);
+            background: var(--bg-header-footer);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: var(--spacing-unit-sm);
+            }
+            .logo {
+                max-height: 60px;
+                max-width: 335x;
+            }
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: var(--spacing-unit-sm);
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+                margin-top: var(--spacing-unit);
+            }
+            .team-card-front h3, .team-card-front h5 {
+                font-size: 1.1rem;
+                padding: 0 5px;
+            }
+            h4 {
+                font-size: 0.8rem;
+                padding: 0 5px;
+            }
+            p {
+                font-size: 0.9rem;
+                margin: 10px 0;
+            }
+            .section {
+                padding: var(--spacing-unit-sm);
+                margin-bottom: calc(var(--spacing-unit) * 2);
+            }
+            .nav-menu {
+                flex-direction: column;
+                gap: 8px;
+                position: absolute;
+                top: var(--header-height);
+                right: 10px;
+                background: var(--bg-header-footer);
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                display: none;
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-menu a {
+                font-size: 0.9rem;
+            }
+            .mission-vision-values, .services-list {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-unit-sm);
+            }
+            .value-card {
+                padding: var(--spacing-unit-sm);
+            }
+            .value-card i {
+                font-size: 2rem;
+            }
+            .value-card h5 {
+                font-size: 1.1rem;
+            }
+            .value-card p {
+                font-size: 0.85rem;
+            }
+            .office-image, .team-image {
+                max-height: 300px;
+                margin: var(--spacing-unit) 0;
+            }
+            .services-list {
+                margin: var(--spacing-unit-sm) 0;
+            }
+            .service-item i {
+                font-size: 1.2rem;
+            }
+            .service-item div strong {
+                font-size: 0.95rem;
+            }
+            .service-item div p {
+                font-size: 0.85rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: var(--spacing-unit-sm);
+            }
+            .team-card {
+                width: 160px;
+                min-height: 300px;
+            }
+            .team-card-front, .team-card-back {
+                padding: var(--spacing-unit-sm);
+            }
+            .team-card-back {
+                padding: var(--spacing-unit-sm);
+            }
+            .team-card-front img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+            }
+            .team-card-back i {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            .team-card-back p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            .contact-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+            .contact-card-modern {
+                max-width: 100%;
+                min-height: 150px;
+                padding: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .contact-card-modern i {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            .contact-card-modern h5 {
+                font-size: 1rem;
+            }
+            .contact-card-modern span {
+                font-size: 0.9rem;
+            }
+            .footer {
+                font-size: 0.85rem;
+                padding: var(--spacing-unit);
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-card-modern {
+                max-width: 100%;
+                min-height: 120px;
+            }
+            .contact-card-modern i {
+                font-size: 1.8rem;
+            }
+            .contact-card-modern h5 {
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 360px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-card-modern {
+                max-width: 200px;
+                margin: 0 auto;
+                min-height: 150px;
+            }
+        }
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+            .team-card-front img:hover {
+                transform: scale(1.1);
+            }
+            .contact-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .contact-card-modern {
+                max-width: 400px;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .team-card-inner, .team-card, .contact-card-modern, .value-card, .office-image, .team-image {
+                transition: none;
+            }
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .contact-card-modern:hover i {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+    <header class="header">
+        <div class="header-content">
+            <img src="logo.png" alt="Logo Contabilizar" class="logo">
+            <span class="menu-toggle"><i class="fas fa-bars"></i></span>
+            <nav class="nav-menu">
+                <a href="#welcome">Boas-vindas</a>
+                <a href="#about">Sobre</a>
+                <a href="#services">Serviços</a>
+                <a href="#team">Equipe</a>
+                <a href="#contact">Contato</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="section aos-init aos-animate" id="welcome" data-aos="fade-in" data-aos-duration="800">
+            <h1>BEM VINDO AO CONTABILIZARe</h1>
+            <p>Prezado(a) cliente,</p>
+            <p>Agradecemos por confiar em nosso escritório. Nosso compromisso é oferecer um atendimento claro, responsável e alinhado às suas obrigações contábeis, fiscais e trabalhistas. Estamos à disposição para orientá-lo(a) sempre que necessário, com atenção e profissionalismo.</p>
+            <p>Conte conosco para o suporte técnico necessário ao cumprimento das suas rotinas contábeis.</p>
+        </div>
+        <div class="section aos-init aos-animate" id="about" data-aos="slide-up" data-aos-duration="800">
+            <h2>Conheça a Empresa</h2>
+            <p>A Contabilizare atua há 15 anos no mercado contábil, oferecendo serviços especializados para empresas que buscam eficiência e confiabilidade. Sob a direção de Jose Vanderlei dos Santos, consolidamos uma abordagem focada nos clientes.</p>
+            <iframe class="office-image aos-init aos-animate" width="100%" height="700" src="https://www.youtube.com/embed/4Hh646BNR3c?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=4Hh646BNR3c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" data-aos="zoom-in" data-aos-duration="800"></iframe>
+            <div class="mission-vision-values">
+                <div class="value-card aos-init aos-animate" data-aos="flip-left" data-aos-duration="800">
+                    <i class="fas fa-bullseye"></i>
+                    <h5>MISSÃO</h5>
+                    <p>Desenvolver serviços contábeis com excelência, auxiliando clientes a empreender e crescer de forma sustentável.</p>
+                </div>
+                <div class="value-card aos-init aos-animate" data-aos="flip-left" data-aos-duration="800" data-aos-delay="100">
+                    <i class="fas fa-eye"></i>
+                    <h5>VISÃO</h5>
+                    <p>Ser referência em contabilidade estratégica e digital, reconhecida por inovação e comprometimento com o sucesso dos clientes.</p>
+                </div>
+                <div class="value-card aos-init aos-animate" data-aos="flip-left" data-aos-duration="800" data-aos-delay="200">
+                    <i class="fas fa-heart"></i>
+                    <h5>VALORES</h5>
+                    <p>Honestidade, transparência, excelência, competência, fé, comprometimento, perseverança.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section aos-init aos-animate" id="services" data-aos="slide-right" data-aos-duration="800">
+            <h2>Serviços Prestados</h2>
+            <p>Oferecemos uma ampla gama de serviços para atender suas necessidades:</p>
+            <div class="services-list">
+                <div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <strong>Abertura e Regularização de Empresas</strong>
+                        <p>Acessorias e consultorias em abertura de negócios, alterações contratuais e regularização fiscal.</p>
+                    </div>
+                </div>
+                <div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <i class="fas fa-book"></i>
+                    <div>
+                        <strong>Contabilidade Geral</strong>
+                        <p>Escrituração contábil completa, com balanços, demonstrações financeiras e suas obrigações acessórias.</p>
+                    </div>
+                </div>
+                <div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <i class="fas fa-tractor"></i>
+                    <div>
+                        <strong>Contabilidade Rural</strong>
+                        <p>Gestão financeira e tributária para atividades agropecuárias.</p>
+                    </div>
+                </div>
+                <div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="300">
+                    <i class="fas fa-calculator"></i>
+                    <div>
+                        <strong>Gestão Fiscal e Tributária</strong>
+                        <p>Apuração de tributos, envio de suas obrigações acessórias e planejamento tributário para otimizar a carga fiscal.</p>
+                    </div>
+                </div>
+                <div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong>Gestão Pessoal</strong>
+                        <p>Admissões, rescisões, folha de pagamento e obrigações acessórias.</p>
+                    </div>
+                </div>
+                <div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="500">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <strong>Declaração de Imposto de Renda</strong>
+                        <p>Elaboração e entrega de declarações para pessoa física e jurídica.</p>
+                    </div>
+                </div>
+				<div class="service-item aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="500">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <strong>Aferição de INSS de Obras – Pessoa Física ou Jurídica</strong>
+                        <p>Cuidamos da regularização do INSS da obra, do SERO à Receita Federal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section aos-init aos-animate" id="team" data-aos="slide-left" data-aos-duration="800">
+            <h2>Estrutura da Equipe</h2>
+            <p>Conheça nossa equipe dedicada ao seu sucesso, composta por profissionais qualificados!</p>
+            <img src="team.jpg" alt="Equipe Contabilizar" class="team-image aos-init aos-animate" data-aos="zoom-in" data-aos-duration="800">
+            <h3 data-aos="zoom-in" data-aos-duration="800" class="aos-init aos-animate"><i class="fas fa-user-tie"></i> Diretoria</h3>
+            <div class="team-grid">
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="José.jpg" alt="Vanderlei dos Santos">
+                            <h5>José Vanderlei dos Santos</h5>
+                            <h4>CEO</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-user-tie"></i>
+                            <p>Com mais de 30 anos de experiência, Vanderlei lidera a Contabilizare com visão estratégica, garantindo excelência em serviços contábeis e fortalecendo parcerias.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Willian.jpg" alt="Willian dos Santos">
+                            <h5>Willian dos Santos</h5>
+                            <h4>Sócio e Gerente Operacional</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-handshake"></i>
+                            <p>Responsável pela gerência dos departamentos contábil, fiscal e pessoal, conduzindo as operações e decisões estratégicas dessas áreas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Vinicius.jpg" alt="Vinicius dos Santos">
+                            <h5>Vinicius dos Santos</h5>
+                            <h4>Gerente Administrativo</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-briefcase"></i>
+                            <p>Gerencia o setor de forma estratégica, com foco no crescimento dos nossos segmentos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="300">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Wagner.jpg" alt="Wagner Santos">
+                            <h5>Wagner dos Santos</h5>
+                            <h4>Diretor de TI</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-laptop-code"></i>
+                            <p>Desenvolve e coordena processos internos, garantindo segurança, sigilo e proteção das informações.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 data-aos="zoom-in" data-aos-duration="800" class="aos-init aos-animate"><i class="fas fa-book"></i> Departamento Contábil</h3>
+            <div class="team-grid">
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Ytalo.jpg" alt="Ytalo do Nascimento">
+                            <h5>Ytalo do Nascimento</h5>
+                            <h4>Coordenador Contábil</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-book"></i>
+                            <p>Coordena o departamento contábil com foco em estratégia, agilidade e cumprimento rigoroso de prazos e fechamentos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Diego.jpg" alt="Diego Lamônica">
+                            <h5>Diego Lamônica</h5>
+                            <h4>Analista Contábil</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-calculator"></i>
+                            <p>Realiza análises e operações voltadas ao fechamento contábil, incluindo balanços e DREs, garantindo entregas pontuais e com qualidade.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Victor.jpg" alt="Victor Daniel">
+                            <h5>Victor Daniel</h5>
+                            <h4>Auxiliar Contábil</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-calculator"></i>
+                            <p>Contribui no suporte às demandas administrativas do departamento contábil.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 data-aos="zoom-in" data-aos-duration="800" class="aos-init aos-animate"><i class="fas fa-file-invoice"></i> Departamento Fiscal</h3>
+            <div class="team-grid">
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Midian.jpg" alt="Midian de Paula">
+                            <h5>Midian de Paula</h5>
+                            <h4>Coordenadora Fiscal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-file-invoice"></i>
+                            <p>Coordena o departamento, garantindo cumprimento de metas e consistência nos resultados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Raissa.jpg" alt="Raissa Jardim">
+                            <h5>Raissa Jardim</h5>
+                            <h4>Auxiliar Fiscal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <p>Responsável por atender empresas do regime do Simples Nacional e Lucro Presumido, com foco maior no segmento de comércio.</p>
+                        </div>
+                    </div>
+                </div>
+				                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Thaynara.jpg" alt="Thaynara Miranda">
+                            <h5>Thaynara Miranda</h5>
+                            <h4>Auxiliar Fiscal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <p>Responsável por atender empresas do regime do Simples Nacional e Lucro Presumido, com foco maior no segmento de comércio.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Jessica.jpg" alt="Jessica Beatriz">
+                            <h5>Jessica Beatriz</h5>
+                            <h4>Analista Fiscal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <p>Responsável por atender empresas do regime do Lucro Real, com foco no segmento de transportes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="300">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Neirieli.jpg" alt="Neirieli Caroline">
+                            <h5>Neirieli Caroline</h5>
+                            <h4>Analista Fiscal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <p>Responsável por atender empresas do regime do Lucro Real, com foco no segmento de comércio..</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="400">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Suelen.jpg" alt="Suelen Calvi">
+                            <h5>Suelen Calvi</h5>
+                            <h4>Assistente Fiscal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <p>Responsável por atender empresas do regime do Simples Nacional e Lucro Presumido, com foco maior no segmento de prestadoras de serviços.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 data-aos="zoom-in" data-aos-duration="800" class="aos-init aos-animate"><i class="fas fa-users"></i> Departamento Pessoal (DP)</h3>
+            <div class="team-grid">
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Hudson.jpg" alt="Hudson Pereira">
+                            <h5>Hudson Pereira</h5>
+                            <h4>Gerente Pessoal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-user-shield"></i>
+                            <p>Coordena o departamento, garantindo cumprimento de metas e consistência nos resultados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Yesa.jpg" alt="Yesa Furtado">
+                            <h5>Yesa Furtado</h5>
+                            <h4>Analista Pessoal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-users"></i>
+                            <p>Responsável pelo fechamento da folha de pagamento de todos os regimes tributários, com eficiência.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init aos-animate" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Leticia.jpg" alt="Leticia Gomes">
+                            <h5>Leticia Gomes</h5>
+                            <h4>Auxiliar Pessoal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-users"></i>
+                            <p>Dá suporte às demandas operacionais do departamento e apoia o fechamento da folha.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 data-aos="zoom-in" data-aos-duration="800" class="aos-init"><i class="fas fa-briefcase"></i> Departamentos Especializados</h3>
+            <div class="team-grid">
+                <div class="team-card aos-init" data-aos="fade-in" data-aos-duration="800">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Julio.jpg" alt="Julio Cesar Dill">
+                            <h5>Julio Cesar Dill</h5>
+                            <h4>Paralegal</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-gavel"></i>
+                            <p>Responsável pelo setor, garantindo cumprimento das demandas e confiança nos processos de constituição e legalização.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Jessica2.jpg" alt="Jessica Santos">
+                            <h5>Jessica Santos</h5>
+                            <h4>Financeiro e Cobrança</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-dollar-sign"></i>
+                            <p>Atua no apoio financeiro e na cobrança, garantindo execução comprometida das demandas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Eloisa.jpg" alt="Eloisa Carvalho">
+                            <h5>Eloisa Carvalho</h5>
+                            <h4>Gestora de RH</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-user-cog"></i>
+                            <p>Promove os recursos internos necessários aos setores, alinhando as ações com a gestão de pessoas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 data-aos="zoom-in" data-aos-duration="800" class="aos-init"><i class="fas fa-headset"></i> Administrativo / Apoio</h3>
+            <div class="team-grid">
+                <div class="team-card aos-init" data-aos="fade-in" data-aos-duration="800">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Maria.jpg" alt="Maria Randon">
+                            <h5>Maria Randon</h5>
+                            <h4>Secretaria</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-phone"></i>
+                            <p>Atende os clientes e direciona cada demanda ao departamento responsável, garantindo agilidade na conclusão das solicitações.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init" data-aos="fade-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Matheus.jpg" alt="Matheus Felipe">
+                            <h5>Matheus Felipe</h5>
+                            <h4>Office Boy</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-running"></i>
+                            <p>Realiza a entrega de documentos aos clientes e organiza a documentação interna.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card aos-init" data-aos="fade-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Lucia.jpg" alt="Lucia Silva">
+                            <h5>Lucia Silva</h5>
+                            <h4>Zeladora</h4>
+                        </div>
+                        <div class="team-card-back">
+                            <i class="fas fa-broom"></i>
+                            <p>Contribui para manter o ambiente limpo e organizado, somando com a equipe no dia a dia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section aos-init" id="contact" data-aos="fade-in" data-aos-duration="800">
+            <h2 data-aos="zoom-in" data-aos-duration="800" class="aos-init">Entre em Contato Conosco</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: var(--text-primary); margin-bottom: var(--spacing-unit);" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100" class="aos-init"></p>
+			<p>Estamos prontos para oferecer soluções contábeis personalizadas. Fale com nossa equipe hoje mesmo!</p>
+            <div class="contact-grid">
+                <div class="contact-card-modern aos-init" data-aos="fade-up" data-aos-duration="800">
+                    <a href="https://wa.me/+556635445981" class="card-link">
+                        <i class="fab fa-whatsapp"></i>
+                        <h5>WhatsApp</h5>
+                    </a>
+                </div>
+                <div class="contact-card-modern aos-init" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <a href="mailto:atendimento@contabilizarcontabil.com" class="card-link">
+                        <i class="fas fa-envelope"></i>
+                        <h5>E-mail</h5>
+                    </a>
+                </div>
+                <div class="contact-card-modern aos-init" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <a href="https://www.contabilizarcontabil.com" class="card-link">
+                        <i class="fas fa-globe"></i>
+                        <h5>Website</h5>
+                    </a>
+                </div>
+                <div class="contact-card-modern aos-init" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <a href="https://www.instagram.com/contabilizarcontabil" class="card-link">
+                        <i class="fab fa-instagram"></i>
+                        <h5>Instagram</h5>
+                    </a>
+                </div>
+                <div class="contact-card-modern aos-init" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <a href="https://maps.google.com/?q=Avenida+dos+Imigrantes,+3674,+Centro-Norte,+Sorriso,+MT,+78890-148" class="card-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h5>Endereço</h5>
+                    </a>
+                </div>
+                <div class="contact-card-modern no-link aos-init" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                    <div>
+                        <i class="fas fa-id-card"></i>
+                        <h5>CRC</h5>
+                        <span>MT000532001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <href>© 2025 Contabilizare Contabilidade. Todos os direitos reservados.</href>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+
+</body></html>
