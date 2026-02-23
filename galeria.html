@@ -43,20 +43,27 @@ h2{
     font-weight:500;
 }
 
-/* GRID PADRÃO */
+/* CARROSSEL */
 
-.galeria{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:0 10% 20px;
+.carousel{
+    position:relative;
+    padding:0 60px;
 }
 
-/* ITEM PADRÃO (foto ou vídeo) */
+.carousel-track{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+}
+
+.carousel-track::-webkit-scrollbar{
+    display:none;
+}
 
 .item{
-    position:relative;
-    width:100%;
+    flex:0 0 320px;
     aspect-ratio:4/3;
     border-radius:14px;
     overflow:hidden;
@@ -69,9 +76,8 @@ h2{
     height:100%;
     object-fit:cover;
     border:none;
+    border-radius:14px;
 }
-
-/* efeito hover */
 
 .item img{
     transition:0.4s;
@@ -82,6 +88,25 @@ h2{
     transform:scale(1.05);
     filter:brightness(100%);
 }
+
+/* BOTÕES */
+
+.carousel button{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.6);
+    border:none;
+    color:white;
+    font-size:28px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
 
 /* LIGHTBOX */
 
@@ -96,27 +121,65 @@ h2{
     justify-content:center;
     align-items:center;
     z-index:999;
+    flex-direction:column;
 }
 
-#lightbox img{
+#lightbox-content img,
+#lightbox-content iframe{
     max-width:90%;
-    max-height:85%;
+    max-height:80%;
     border-radius:14px;
 }
+
+.lightbox-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+    padding:20px;
+}
+
+.lightbox-actions{
+    position:absolute;
+    bottom:40px;
+    display:flex;
+    gap:15px;
+}
+
+.lightbox-actions button{
+    background:rgba(0,0,0,0.7);
+    border:1px solid #d4af37;
+    color:#d4af37;
+    padding:8px 16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.zoomed{
+    transform:scale(1.8);
+    cursor:zoom-out;
+    transition:0.3s;
+}
+
+.lb-prev{ left:30px; }
+.lb-next{ right:30px; }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-    .galeria{
-        grid-template-columns:repeat(2, 1fr); /* 2 colunas fixas */
-        gap:12px;
-        padding:0 16px 40px;
+    .carousel{
+        padding:0 20px;
     }
 
     .item{
-        aspect-ratio:4/3;
-        border-radius:12px;
+        flex:0 0 48%;
+    }
+
+    .carousel button{
+        display:none;
     }
 
     h1{
@@ -129,7 +192,6 @@ h2{
         margin:45px 0 20px;
         padding:0 10px;
     }
-
 }
 </style>
 </head>
@@ -141,86 +203,141 @@ h2{
 
 <!-- ABERTURA -->
 <h2>📸 Abertura do Evento</h2>
-<div class="galeria">
+<div class="carousel">
+<button class="prev" onclick="scrollCarousel(this,-1)">‹</button>
+<div class="carousel-track">
 
-<div class="item">
-    <img src="abertura1.jpg" onclick="abrir(this.src)">
+<div class="item"><img src="abertura1.jpg"></div>
+<div class="item"><img src="abertura2.jpg"></div>
+<div class="item"><iframe src="https://www.youtube.com/embed/qxzQR5uwWsk" allowfullscreen></iframe></div>
+<div class="item"><img src="abertura3.jpg"></div>
+<div class="item"><img src="abertura4.jpg"></div>
+<div class="item"><img src="abertura5.jpg"></div>
+<div class="item"><img src="abertura6.jpg"></div>
+
 </div>
-
-<div class="item">
-    <img src="abertura2.jpg" onclick="abrir(this.src)">
-</div>
-
-<div class="item">
-    <iframe src="https://www.youtube.com/embed/watch?v=qxzQR5uwWsk&list=TLGGx8QUoVLO3gMyMzAyMjAyNg&index=5"></iframe>
-</div>
-
-<div class="item">
-    <img src="abertura3.jpg" onclick="abrir(this.src)">
-</div>
-
+<button class="next" onclick="scrollCarousel(this,1)">›</button>
 </div>
 
 <!-- PALESTRAS -->
 <h2>📸 Palestras</h2>
-<div class="galeria">
+<div class="carousel">
+<button class="prev" onclick="scrollCarousel(this,-1)">‹</button>
+<div class="carousel-track">
 
-<div class="item">
-    <img src="palestra1.jpg" onclick="abrir(this.src)">
+<div class="item"><img src="palestra1.jpg"></div>
+<div class="item"><iframe src="https://www.youtube.com/embed/qxzQR5uwWsk" allowfullscreen></iframe></div>
+<div class="item"><img src="palestra2.jpg"></div>
+<div class="item"><img src="palestra3.jpg"></div>
+
 </div>
-
-<div class="item">
-    <iframe src="https://www.youtube.com/embed/watch?v=qxzQR5uwWsk&list=TLGGx8QUoVLO3gMyMzAyMjAyNg&index=5"></iframe>
-</div>
-
-<div class="item">
-    <img src="palestra2.jpg" onclick="abrir(this.src)">
-</div>
-
-<div class="item">
-    <img src="palestra3.jpg" onclick="abrir(this.src)">
-</div>
-
+<button class="next" onclick="scrollCarousel(this,1)">›</button>
 </div>
 
 <!-- NETWORKING -->
 <h2>📸 Networking</h2>
-<div class="galeria">
+<div class="carousel">
+<button class="prev" onclick="scrollCarousel(this,-1)">‹</button>
+<div class="carousel-track">
 
-<div class="item">
-    <img src="networking1.jpg" onclick="abrir(this.src)">
+<div class="item"><img src="networking1.jpg"></div>
+<div class="item"><img src="networking2.jpg"></div>
+<div class="item"><iframe src="https://www.youtube.com/embed/qxzQR5uwWsk" allowfullscreen></iframe></div>
+<div class="item"><img src="networking3.jpg"></div>
+
 </div>
-
-<div class="item">
-    <img src="networking2.jpg" onclick="abrir(this.src)">
-</div>
-
-<div class="item">
-    <iframe src="https://www.youtube.com/embed/watch?v=qxzQR5uwWsk&list=TLGGx8QUoVLO3gMyMzAyMjAyNg&index=5"></iframe>
-</div>
-
-<div class="item">
-    <img src="networking3.jpg" onclick="abrir(this.src)">
-</div>
-
+<button class="next" onclick="scrollCarousel(this,1)">›</button>
 </div>
 
 <a href="home.html" class="voltar">← Voltar para Home</a>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" onclick="fechar()">
-    <img id="imagemGrande">
+<div id="lightbox">
+    <span class="lightbox-nav lb-prev" onclick="navegar(-1)">‹</span>
+
+    <div id="lightbox-content"></div>
+
+    <div class="lightbox-actions">
+        <button id="zoomBtn" onclick="toggleZoom()">🔍 Zoom</button>
+        <a id="downloadBtn" download>
+        </a>
+    </div>
+
+    <span class="lightbox-nav lb-next" onclick="navegar(1)">›</span>
 </div>
 
-<script>
-function abrir(src){
-    document.getElementById("lightbox").style.display="flex";
-    document.getElementById("imagemGrande").src=src;
+<<script>
+
+let grupoAtual = [];
+let indiceAtual = 0;
+let zoomAtivo = false;
+
+function scrollCarousel(btn, direction){
+    const track = btn.parentElement.querySelector(".carousel-track");
+    const itemWidth = track.querySelector(".item").offsetWidth + 20;
+    track.scrollLeft += direction * itemWidth;
 }
 
-function fechar(){
-    document.getElementById("lightbox").style.display="none";
+document.querySelectorAll(".carousel-track").forEach(track=>{
+    const items = track.querySelectorAll(".item");
+    items.forEach((item,index)=>{
+        item.addEventListener("click",()=>{
+            grupoAtual = Array.from(items);
+            indiceAtual = index;
+            mostrarItem();
+            document.getElementById("lightbox").style.display="flex";
+        });
+    });
+});
+
+function mostrarItem(){
+    const content = document.getElementById("lightbox-content");
+    content.innerHTML = grupoAtual[indiceAtual].innerHTML;
+
+    zoomAtivo = false;
+
+    const img = content.querySelector("img");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const zoomBtn = document.getElementById("zoomBtn");
+
+    if(img){
+        downloadBtn.style.display = "inline-block";
+        zoomBtn.style.display = "inline-block";
+        downloadBtn.href = img.src;
+    } else {
+        downloadBtn.style.display = "none";
+        zoomBtn.style.display = "none";
+    }
 }
+
+function navegar(direcao){
+    indiceAtual += direcao;
+
+    if(indiceAtual < 0) indiceAtual = grupoAtual.length - 1;
+    if(indiceAtual >= grupoAtual.length) indiceAtual = 0;
+
+    mostrarItem();
+}
+
+function toggleZoom(){
+    const img = document.querySelector("#lightbox-content img");
+    if(!img) return;
+
+    zoomAtivo = !zoomAtivo;
+    img.classList.toggle("zoomed");
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight") navegar(1);
+    if(e.key === "ArrowLeft") navegar(-1);
+});
+
+document.getElementById("lightbox").addEventListener("click", function(e){
+    if(e.target.id === "lightbox"){
+        this.style.display="none";
+    }
+});
+
 </script>
 
 </body>
