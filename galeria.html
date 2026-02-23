@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeria Completa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:#081726;
+    font-family:'Poppins', sans-serif;
+    color:white;
+    text-align:center;
+}
+
+h1{
+    padding:40px;
+    color:#d4af37;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    padding:40px 10%;
+}
+
+.galeria img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+#lightbox{
+    position:fixed;
+    display:none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.95);
+    justify-content:center;
+    align-items:center;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:85%;
+}
+
+a{
+    color:#d4af37;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Galeria Completa</h1>
+
+<div class="galeria">
+<script>
+for(let i=1;i<=50;i++){
+    document.write('<img src="foto'+i+'.jpg" onclick="abrir(this.src)">');
+}
+</script>
+</div>
+
+<a href="home.html">← Voltar</a>
+
+<div id="lightbox" onclick="fechar()">
+    <img id="imagemGrande">
+</div>
+
+<script>
+function abrir(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("imagemGrande").src=src;
+}
+
+function fechar(){
+    document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+</body>
+</html>

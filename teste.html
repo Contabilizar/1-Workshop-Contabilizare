@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop Contabilizare - 1ª Edição</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --azul-escuro:#081726;
+    --dourado:#d4af37;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:var(--azul-escuro);
+    color:white;
+}
+
+.hero{
+    height:100vh;
+    background:url('banner.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:48px;
+    color:var(--dourado);
+}
+
+.section{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.topicos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background:#0d2233;
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    font-family:'Playfair Display', serif;
+    color:var(--dourado);
+}
+
+.carousel{
+    position:relative;
+    overflow:hidden;
+    height:200px;
+}
+
+.carousel img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1s ease;
+}
+
+.carousel img.active{
+    opacity:1;
+}
+
+footer{
+    padding:40px;
+    text-align:center;
+    opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>Gestão Inteligente Para Tempos de Mudanças</h1>
+</div>
+
+<div class="section">
+    <h2 style="color:var(--dourado); font-family:'Playfair Display', serif;">Destaques do Workshop</h2>
+
+    <div class="topicos">
+
+        <div class="card" onclick="window.location.href='solagro.html'">
+            <img src="foto1.jpg">
+            <div class="card-content">
+                <h3>Solagro</h3>
+                <p>Palestra estratégica voltada ao agronegócio.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='leila.html'">
+            <img src="foto5.jpg">
+            <div class="card-content">
+                <h3>Leila Futcher</h3>
+                <p>Liderança e desenvolvimento humano.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='irineo.html'">
+            <img src="foto10.jpg">
+            <div class="card-content">
+                <h3>Irineo Cassol</h3>
+                <p>Visão empresarial e reforma tributária.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='galeria.html'">
+            <div class="carousel">
+                <img src="foto20.jpg" class="active">
+                <img src="foto21.jpg">
+                <img src="foto22.jpg">
+                <img src="foto23.jpg">
+            </div>
+            <div class="card-content">
+                <h3>Galeria Completa</h3>
+                <p>Veja todos os momentos do evento.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+© 2026 Contabilizare
+</footer>
+
+<script>
+let slides = document.querySelectorAll('.carousel img');
+let index = 0;
+
+setInterval(()=>{
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+},3000);
+</script>
+
+</body>
+</html>

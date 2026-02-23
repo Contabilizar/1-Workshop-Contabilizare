@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop Contabilizare - 1ª Edição</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --azul-escuro:#081726;
+    --azul:#0f3c5f;
+    --dourado:#d4af37;
+}
+
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:var(--azul-escuro);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ===== LOGIN PREMIUM ===== */
+
+#login{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:linear-gradient(135deg,var(--azul),var(--azul-escuro));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+    animation:fadeIn 1s ease;
+}
+
+#login h2{
+    font-family:'Playfair Display', serif;
+    color:var(--dourado);
+    font-size:32px;
+}
+
+#login input{
+    padding:14px;
+    width:260px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+#login button{
+    margin-top:15px;
+    padding:12px 30px;
+    background:var(--dourado);
+    border:none;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#login button:hover{
+    transform:scale(1.05);
+}
+
+/* ===== HERO PREMIUM ===== */
+
+.hero{
+    position:relative;
+    height:100vh;
+    background:url('banner.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.6), var(--azul-escuro));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    animation:fadeUp 1.5s ease;
+}
+
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:50px;
+    color:var(--dourado);
+}
+
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+    opacity:0.9;
+}
+
+/* ===== SECTIONS ===== */
+
+.section{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.section h2{
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+    color:var(--dourado);
+    margin-bottom:20px;
+}
+
+/* ===== GALERIA PREMIUM ===== */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr); /* Mobile padrão */
+    gap:15px;
+    margin-top:50px;
+}
+
+.galeria img{
+    width:100%;
+    aspect-ratio: 4 / 3;   /* Proporção elegante */
+    object-fit:cover;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.4s ease;
+    filter:brightness(92%);
+}
+
+.galeria img:hover{
+    transform:scale(1.04);
+    filter:brightness(100%);
+}
+
+/* Desktop */
+@media (min-width:1024px){
+    .galeria{
+        grid-template-columns:repeat(5, 1fr);
+        gap:20px;
+    }
+}
+
+/* ===== LIGHTBOX ===== */
+
+#lightbox{
+    position:fixed;
+    display:none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:rgba(0,0,0,0.95);
+    justify-content:center;
+    align-items:center;
+    animation:fadeIn 0.4s ease;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:85%;
+    border-radius:12px;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    padding:40px;
+    background:#050f18;
+    text-align:center;
+    font-size:14px;
+    opacity:0.6;
+}
+
+/* ===== ANIMAÇÕES ===== */
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* Scroll animation */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.topicos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background:#0d2233;
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    font-family:'Playfair Display', serif;
+    color:var(--dourado);
+}
+
+.carousel{
+    position:relative;
+    overflow:hidden;
+    height:200px;
+}
+
+.carousel img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1s ease;
+}
+
+.carousel img.active{
+    opacity:1;
+}
+
+footer{
+    padding:40px;
+    text-align:center;
+    opacity:0.6;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>Gestão Inteligente Para Tempos de Mudanças</h1>
+        <p>Preparando sua empresa para os novos desafios da gestão moderna<p>
+    </div>
+</div>
+
+<!-- SOBRE -->
+<div class="section reveal">
+    <h2>Workshop</h2>
+    <p>
+        1ª Edição do Workshop Contabilizare • 27/02/2026
+    </p>
+	<p>
+		O Workshop Contabilizare reuniu empresários e líderes para uma imersão
+        estratégica sobre reforma tributária, gestão inteligente e liderança.
+        Confira abaixo os momentos que marcaram essa primeira edição.
+    </p>
+	<p>
+	Vivemos um momento de profundas transformações no cenário empresarial. Mudanças na legislação, avanços tecnológicos, novas exigências na gestão de pessoas e a necessidade de decisões cada vez mais estratégicas exigem líderes preparados, atualizados e com visão de futuro.
+  Pensando nisso, a Contabilizare apresenta a 1ª Edição do Workshop “Gestão Inteligente Para Tempos de Mudanças”, um encontro exclusivo voltado para empresários, gestores, líderes e profissionais que desejam fortalecer sua gestão e preparar suas empresas para os desafios atuais e futuros.
+  Neste workshop, você terá acesso a conteúdo prático, estratégico e atual, ministrado por especialistas com ampla experiência nas áreas de gestão, logística, tributação e desenvolvimento humano. Ao final do evento, os participantes receberão certificado digital de participação.
+  </p>
+</div>
+
+<div class="section reveal">
+    <h2 style="color:var(--dourado); font-family:'Playfair Display', serif;">Destaques do Workshop</h2>
+
+    <div class="topicos">
+
+        <div class="card" onclick="window.location.href='solagro.html'">
+            <img src="solagro.jpg">
+            <div class="card-content">
+                <h3>Solagro</h3>
+                <p>Palestra estratégica voltada ao agronegócio.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='leila.html'">
+            <img src="leila.jpg">
+            <div class="card-content">
+                <h3>Leila Fuchter</h3>
+                <p>Liderança e desenvolvimento humano.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='irineo.html'">
+            <img src="irineo.jpg">
+            <div class="card-content">
+                <h3>Irineo Cassol</h3>
+                <p>Visão empresarial e reforma tributária.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='galeria.html'">
+            <img src="foto11.jpg">
+            <div class="card-content">
+                <h3>Galeria Completa</h3>
+                <p>Veja todos os momentos do evento.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<
+
+<footer>
+© 2026 Contabilizare • Todos os direitos reservados
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="fechar()">
+    <img id="imagemGrande">
+</div>
+
+<script>
+function verificarSenha(){
+    var senha = document.getElementById("senha").value;
+    if(senha === "contabilizare2026"){
+        document.getElementById("login").style.display="none";
+    }else{
+        alert("Senha incorreta!");
+    }
+}
+
+function abrir(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("imagemGrande").src=src;
+}
+
+function fechar(){
+    document.getElementById("lightbox").style.display="none";
+}
+
+/* Scroll reveal */
+window.addEventListener('scroll', function(){
+    var reveals = document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        if(elementTop < windowHeight - 100){
+            reveals[i].classList.add('active');
+        }
+    }
+});
+</script>
+
+</body>
+</html>
