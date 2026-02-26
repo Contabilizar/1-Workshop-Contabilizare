@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nome da Página</title>
+<title>Solagro</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -16,11 +16,11 @@
 body{
     margin:0;
     font-family:'Poppins', sans-serif;
-    background:#081726;
+    background:var(--azul-escuro);
     color:white;
 }
 
-/* ===== HERO PREMIUM ===== */
+/* ===== HERO ===== */
 
 .hero{
     position:relative;
@@ -50,33 +50,86 @@ body{
     font-family:'Playfair Display', serif;
     font-size:50px;
     color:var(--dourado);
+    margin:0;
 }
 
 .hero p{
     font-size:18px;
     max-width:700px;
-    margin:auto;
-    opacity:0.;
+    margin:20px auto 0;
+    opacity:0.8;
 }
 
+/* ===== HEADER ===== */
+
 header{
-    padding:40px;
+    padding:60px 15%;
     text-align:center;
     background:#0d2233;
 }
 
-h1{
+header h2{
     font-family:'Playfair Display', serif;
-    color:#d4af37;
+    color:var(--dourado);
+    font-size:32px;
+    margin:0;
 }
+
+/* ===== SECTION ===== */
 
 .section{
     padding:60px 15%;
     line-height:1.7;
 }
 
+/* ===== IMAGENS ===== */
+
+.team-image {
+    width:100%;
+    max-width:1100px; /* mantém perfeito no desktop */
+    height:auto;
+    display:block;
+    margin:0 auto 30px auto;
+    border-radius:8px;
+}
+
+/* ===== LINKS ===== */
+
 a{
-    color:#d4af37;
+    color:var(--dourado);
+    text-decoration:none;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 768px){
+
+    .hero{
+        height:70vh;
+        padding:20px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    header{
+        padding:40px 20px;
+    }
+
+    header h2{
+        font-size:22px;
+        line-height:1.4;
+    }
+
+    .section{
+        padding:40px 20px;
+    }
+
 }
 </style>
 </head>
@@ -87,16 +140,48 @@ a{
 <div class="hero">
     <div class="hero-content">
         <h1></h1>
-        <p><p>
+        <p></p>
     </div>
 </div>
 
 <header>
-    <h1>Título Aqui</h1>
+    <h2>Rota 2026 | Liderar, Conectar e Sustentar Resultados</h2>
 </header>
 
 <div class="section">
-    <p>Conteúdo detalhado da palestra aqui...</p>
+    <a href="home.html">← Voltar</a>
+    <img src="solagro0.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro1.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro2.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro4.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro5.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro6.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro7.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro8.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro9.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro10.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro11.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro12.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro13.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro14.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro15.jpg" class="team-image">
+	    <a href="home.html">← Voltar</a>
+    <img src="solagro16.jpg" class="team-image">
+
     <br>
     <a href="home.html">← Voltar</a>
 </div>
