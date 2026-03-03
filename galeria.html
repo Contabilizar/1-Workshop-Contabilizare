@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galeria Completa • Workshop Contabilizare</title>
+<title>Galeria • Workshop Contabilizare</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -20,44 +20,7 @@ body{
     color:white;
 }
 
-/* ===== HERO PREMIUM ===== */
-
-.hero{
-    position:relative;
-    height:100vh;
-    background:url('galeria.jpg') center/cover no-repeat;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.0), var(--azul-escuro));
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    animation:fadeUp 1.5s ease;
-}
-
-.hero h1{
-    font-family:'Playfair Display', serif;
-    font-size:50px;
-    color:var(--dourado);
-}
-
-.hero p{
-    font-size:18px;
-    max-width:700px;
-    margin:auto;
-    opacity:0.9;
-}
+/* TÍTULO */
 
 h1{
     text-align:center;
@@ -66,59 +29,68 @@ h1{
     color:var(--dourado);
 }
 
-h2{
-    text-align:center;
-    margin:60px 0 30px;
-    font-family:'Montserrat', sans-serif;
-    color:var(--dourado);
-}
-
 .voltar{
     display:block;
     text-align:center;
-    margin:20px 0 40px;
+    margin:20px 0 30px;
     color:var(--dourado);
     text-decoration:none;
-    font-weight:500;
 }
 
-/* CARROSSEL */
+/* FILTROS */
 
-.carousel{
-    position:relative;
-    padding:0 60px;
-}
-
-.carousel-track{
+.filtros{
+    position:sticky;
+    top:0;
+    z-index:100;
     display:flex;
-    gap:20px;
-    overflow-x:auto;
-    scroll-behavior:smooth;
-    scrollbar-width:none;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:15px 10px;
+    margin-bottom:30px;
+
+    background:rgba(8,23,38,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(212,175,55,0.2);
 }
 
-.carousel-track::-webkit-scrollbar{
-    display:none;
+.filtros button{
+    background:none;
+    border:1px solid var(--dourado);
+    color:var(--dourado);
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.filtros button:hover,
+.filtros button.active{
+    background:var(--dourado);
+    color:var(--azul-escuro);
+}
+
+/* GRID GALERIA */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:15px;
+    padding:0 40px 60px;
 }
 
 .item{
-    flex:0 0 320px;
     aspect-ratio:4/3;
-    border-radius:14px;
     overflow:hidden;
+    border-radius:12px;
     cursor:pointer;
 }
 
-.item img,
-.item iframe{
+.item img{
     width:100%;
     height:100%;
     object-fit:cover;
-    border:none;
-    border-radius:14px;
-}
-
-.item img{
     transition:0.4s;
     filter:brightness(92%);
 }
@@ -127,25 +99,6 @@ h2{
     transform:scale(1.05);
     filter:brightness(100%);
 }
-
-/* BOTÕES */
-
-.carousel button{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.6);
-    border:none;
-    color:white;
-    font-size:28px;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    cursor:pointer;
-}
-
-.prev{ left:10px; }
-.next{ right:10px; }
 
 /* LIGHTBOX */
 
@@ -163,73 +116,69 @@ h2{
     flex-direction:column;
 }
 
-#lightbox-content img,
-#lightbox-content iframe{
+#lightbox img{
     max-width:90%;
     max-height:80%;
     border-radius:14px;
 }
 
-.lightbox-nav{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:40px;
-    color:white;
-    cursor:pointer;
-    padding:20px;
-}
-
 .lightbox-actions{
-    position:absolute;
-    bottom:40px;
+    margin-top:20px;
     display:flex;
     gap:15px;
 }
 
-.lightbox-actions button{
+.lightbox-actions button,
+.lightbox-actions a{
     background:rgba(0,0,0,0.7);
-    border:1px solid #d4af37;
-    color:#d4af37;
+    border:1px solid var(--dourado);
+    color:var(--dourado);
     padding:8px 16px;
     border-radius:6px;
     cursor:pointer;
+    text-decoration:none;
 }
 
 .zoomed{
     transform:scale(1.8);
     cursor:zoom-out;
-    transition:0.3s;
 }
 
-.lb-prev{ left:30px; }
-.lb-next{ right:30px; }
-
-/* MOBILE */
+/* RESPONSIVO */
 
 @media(max-width:768px){
-
-    .carousel{
-        padding:0 20px;
-    }
-
-    .item{
-        flex:0 0 48%;
-    }
-
-    .carousel button{
-        display:none;
+    .galeria{
+        padding:0 15px 40px;
+        grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
     }
 
     h1{
-        font-size:24px;
-        padding:30px 15px 5px;
+        font-size:22px;
     }
+}
 
-    h2{
-        font-size:18px;
-        margin:45px 0 20px;
-        padding:0 10px;
+/* ANIMAÇÃO SUAVE */
+
+.galeria{
+    opacity:1;
+    transition:opacity 0.4s ease, transform 0.4s ease;
+}
+
+.galeria.fade-out{
+    opacity:0;
+    transform:translateY(10px);
+}
+
+.item{
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeItem 0.5s forwards;
+}
+
+@keyframes fadeItem{
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 </style>
@@ -237,153 +186,105 @@ h2{
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-    <div class="hero-content">
-        <h1></h1>
-        <p><p>
-    </div>
-</div>
-
 <h1>Galeria Completa</h1>
 <a href="home.html" class="voltar">← Voltar para Home</a>
 
-<!-- ABERTURA -->
-<h2>📸 Abertura do Evento</h2>
-<div class="carousel">
-<button class="prev" onclick="scrollCarousel(this,-1)">‹</button>
-<div class="carousel-track">
-
-<div class="item"><img src="abertura1.jpg"></div>
-<div class="item"><img src="abertura2.jpg"></div>
-<div class="item"><iframe src="https://www.youtube.com/embed/qxzQR5uwWsk" allowfullscreen></iframe></div>
-<div class="item"><img src="abertura3.jpg"></div>
-<div class="item"><img src="abertura4.jpg"></div>
-<div class="item"><img src="abertura5.jpg"></div>
-<div class="item"><img src="abertura6.jpg"></div>
-
-</div>
-<button class="next" onclick="scrollCarousel(this,1)">›</button>
+<div class="filtros">
+    <button onclick="filtrar('abertura', this)" class="active">Abertura</button>
+    <button onclick="filtrar('palestra', this)">Palestras</button>
+    <button onclick="filtrar('networking', this)">Networking</button>
+    <button onclick="filtrar('organizacao', this)">Organização</button>
+    <button onclick="filtrar('equipe', this)">Equipe</button>
 </div>
 
-<!-- PALESTRAS -->
-<h2>📸 Palestras</h2>
-<div class="carousel">
-<button class="prev" onclick="scrollCarousel(this,-1)">‹</button>
-<div class="carousel-track">
-
-<div class="item"><img src="palestra1.jpg"></div>
-<div class="item"><iframe src="https://www.youtube.com/embed/qxzQR5uwWsk" allowfullscreen></iframe></div>
-<div class="item"><img src="palestra2.jpg"></div>
-<div class="item"><img src="palestra3.jpg"></div>
-
-</div>
-<button class="next" onclick="scrollCarousel(this,1)">›</button>
-</div>
-
-<!-- NETWORKING -->
-<h2>📸 Networking</h2>
-<div class="carousel">
-<button class="prev" onclick="scrollCarousel(this,-1)">‹</button>
-<div class="carousel-track">
-
-<div class="item"><img src="networking1.jpg"></div>
-<div class="item"><img src="networking2.jpg"></div>
-<div class="item"><iframe src="https://www.youtube.com/embed/qxzQR5uwWsk" allowfullscreen></iframe></div>
-<div class="item"><img src="networking3.jpg"></div>
-
-</div>
-<button class="next" onclick="scrollCarousel(this,1)">›</button>
-</div>
-
-<a href="home.html" class="voltar">← Voltar para Home</a>
+<div class="galeria" id="galeria"></div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
-    <span class="lightbox-nav lb-prev" onclick="navegar(-1)">‹</span>
-
-    <div id="lightbox-content"></div>
-
+    <img id="lightbox-img">
     <div class="lightbox-actions">
-        <button id="zoomBtn" onclick="toggleZoom()">🔍 Zoom</button>
-        <a id="downloadBtn" download>
-        </a>
+        <button onclick="toggleZoom()">🔍 Zoom</button>
+        <a id="downloadBtn" download>⬇ Download</a>
     </div>
-
-    <span class="lightbox-nav lb-next" onclick="navegar(1)">›</span>
 </div>
 
 <<script>
 
-let grupoAtual = [];
-let indiceAtual = 0;
-let zoomAtivo = false;
+const categorias = {
+    abertura: 45,
+    palestra: 73,
+    networking: 23,
+    organizacao: 9,
+    equipe: 20
+};
 
-function scrollCarousel(btn, direction){
-    const track = btn.parentElement.querySelector(".carousel-track");
-    const itemWidth = track.querySelector(".item").offsetWidth + 20;
-    track.scrollLeft += direction * itemWidth;
+function carregarImagens(categoria){
+
+    const galeria = document.getElementById("galeria");
+
+    // Fade out suave
+    galeria.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        galeria.innerHTML = "";
+
+        for(let i=1; i<=categorias[categoria]; i++){
+
+            const div = document.createElement("div");
+            div.className = "item";
+
+            // Delay progressivo elegante
+            div.style.animationDelay = `${i * 0.02}s`;
+
+            const img = document.createElement("img");
+            img.src = `${categoria}${i}.jpg`;
+            img.loading = "lazy";
+
+            div.appendChild(img);
+            div.onclick = ()=>abrirLightbox(img.src);
+
+            galeria.appendChild(div);
+        }
+
+        galeria.classList.remove("fade-out");
+
+    }, 400); // mesmo tempo do transition
 }
 
-document.querySelectorAll(".carousel-track").forEach(track=>{
-    const items = track.querySelectorAll(".item");
-    items.forEach((item,index)=>{
-        item.addEventListener("click",()=>{
-            grupoAtual = Array.from(items);
-            indiceAtual = index;
-            mostrarItem();
-            document.getElementById("lightbox").style.display="flex";
-        });
+function filtrar(categoria, botao){
+    carregarImagens(categoria);
+
+    document.querySelectorAll(".filtros button").forEach(btn=>{
+        btn.classList.remove("active");
     });
-});
 
-function mostrarItem(){
-    const content = document.getElementById("lightbox-content");
-    content.innerHTML = grupoAtual[indiceAtual].innerHTML;
-
-    zoomAtivo = false;
-
-    const img = content.querySelector("img");
-    const downloadBtn = document.getElementById("downloadBtn");
-    const zoomBtn = document.getElementById("zoomBtn");
-
-    if(img){
-        downloadBtn.style.display = "inline-block";
-        zoomBtn.style.display = "inline-block";
-        downloadBtn.href = img.src;
-    } else {
-        downloadBtn.style.display = "none";
-        zoomBtn.style.display = "none";
-    }
+    botao.classList.add("active");
 }
 
-function navegar(direcao){
-    indiceAtual += direcao;
+function abrirLightbox(src){
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+    const downloadBtn = document.getElementById("downloadBtn");
 
-    if(indiceAtual < 0) indiceAtual = grupoAtual.length - 1;
-    if(indiceAtual >= grupoAtual.length) indiceAtual = 0;
+    img.src = src;
+    downloadBtn.href = src;
 
-    mostrarItem();
+    lightbox.style.display = "flex";
 }
 
 function toggleZoom(){
-    const img = document.querySelector("#lightbox-content img");
-    if(!img) return;
-
-    zoomAtivo = !zoomAtivo;
+    const img = document.getElementById("lightbox-img");
     img.classList.toggle("zoomed");
 }
-
-document.addEventListener("keydown", function(e){
-    if(e.key === "ArrowRight") navegar(1);
-    if(e.key === "ArrowLeft") navegar(-1);
-});
 
 document.getElementById("lightbox").addEventListener("click", function(e){
     if(e.target.id === "lightbox"){
         this.style.display="none";
     }
 });
+
+carregarImagens("abertura");
 
 </script>
 
