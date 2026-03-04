@@ -20,6 +20,30 @@ body{
     color:white;
 }
 
+.hero{
+    position:relative;
+    height:100vh;
+    background:url('banner.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.0), var(--azul-escuro));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    animation:fadeUp 1.5s ease;
+}
+
 /* TÍTULO */
 
 h1{
@@ -181,10 +205,27 @@ h1{
         transform:translateY(0);
     }
 }
+
+@media(max-width:768px){
+
+    .hero{
+        height: 65vh; /* reduz altura no celular */
+        background-position: center top; /* mostra mais parte superior */
+    }
+
+}
 </style>
 </head>
 
 <body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1></h1>
+        <p><p>
+    </div>
+</div>
 
 <h1>Galeria Completa</h1>
 <a href="home.html" class="voltar">← Voltar para Home</a>
