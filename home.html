@@ -267,6 +267,35 @@ footer{
 
 }
 
+/* ===== VIDEO RESPONSIVO ===== */
+
+.video-container{
+    position:relative;
+    width:100%;
+    max-width:1400px; /* limite elegante no desktop */
+    margin:80px auto;
+    padding-bottom:56.25%; /* 16:9 */
+    height:0;
+    overflow:hidden;
+    border-radius:18px;
+}
+
+.video-container iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+/* Ajuste fino para mobile */
+@media (max-width:768px){
+    .video-container{
+        margin:40px 20px;
+        border-radius:12px;
+    }
+}
+
 </style>
 </head>
 
@@ -280,7 +309,14 @@ footer{
     </div>
 </div>
 
- <iframe class="office-image aos-init aos-animate" width="100%" height="700" src="https://www.youtube.com/embed/r39Fxhtknic?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=r39Fxhtknic" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" data-aos="zoom-in" data-aos-duration="800"></iframe>
+<div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/r39Fxhtknic?autoplay=1&mute=1&loop=1&playlist=r39Fxhtknic" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+    </iframe>
+</div>
 
 <!-- SOBRE -->
 <div class="section reveal">
